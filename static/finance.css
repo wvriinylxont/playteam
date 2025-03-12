@@ -62,6 +62,18 @@ section>h1 {
 	margin-right: 10px;
 }
 
+.backcolor {
+	display: inline-block;
+	width: 400px;
+	background-color: gray;
+
+}
+
+.pad {
+	padding-left: 60px;
+}
+
+
 nav,
 footer {
 	border: 1px solid darkcyan;
