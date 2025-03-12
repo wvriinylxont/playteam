@@ -1,0 +1,68 @@
+/* 전체 선택자 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#app {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+header,
+nav,
+footer {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+header {
+	border: 1px solid rgb(200, 200, 200);
+	font-size: 1.25em;
+	letter-spacing: 1em;
+	font-weight: bold;
+}
+
+main {
+	overflow: hidden;
+}
+
+main>* {
+	float: left;
+}
+
+aside {
+	background-color: #777;
+	width: 100px;
+	height: 200px;
+}
+
+section {
+	background-color: white;
+	width: 1000px;
+	min-height: 600px;
+	padding: 5px;
+}
+
+section>h1 {
+	margin: auto;
+	text-align: center;
+	margin-top: 100px;
+	font-size: 350%;
+}
+
+.horizontal {
+	overflow: hidden;
+}
+
+.horizontal>form {
+	float: left;
+	margin-right: 10px;
+}
+
+nav,
+footer {
+	border: 1px solid darkcyan;
+}
