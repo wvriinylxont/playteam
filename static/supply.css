@@ -1,8 +1,16 @@
-/* 전체 선택자 */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+nav {
+	background-color: darksalmon;
+}
+
+nav>ul {
+	list-style: none;
+	overflow: hidden;
 }
 
 #app {
@@ -13,13 +21,13 @@
 header,
 nav,
 footer {
+	text-align: center;
 	height: 50px;
 	line-height: 50px;
-	text-align: center;
 }
 
 header {
-	border: 1px solid rgb(200, 200, 200);
+	border: 1px solid darksalmon;
 	font-size: 1.25em;
 	letter-spacing: 1em;
 	font-weight: bold;
@@ -33,59 +41,61 @@ main>* {
 	float: left;
 }
 
-aside {
-	background-color: #777;
-	width: 100px;
-	height: 200px;
+h1 {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 300px;
 }
 
-section {
-	background-color: white;
-	width: 1000px;
-	min-height: 600px;
-	padding: 5px;
-}
-
-section>h1 {
-	margin: auto;
-	text-align: center;
-	margin-top: 100px;
-	font-size: 350%;
-}
-
-.horizontal {
+ul {
 	overflow: hidden;
+	display: inline-block;
 }
 
-.horizontal>form {
+li {
 	float: left;
-	margin-right: 10px;
+	width: 100px;
 }
 
-nav,
-footer {
-	border: 1px solid darkcyan;
-}
-
-nav>ul {
-	list-style: none;
-	overflow: hidden;
+li:hover {
+	background-color: lightpink;
+	color: lightpink;
+	cursor: pointer;
 }
 
 nav>ul>li {
 	float: left;
 	width: 120px;
-	background-color: #212529;
+	background-color: darksalmon;
 }
 
 nav>ul>li>a {
+	color: indianred;
 	text-decoration: none;
-	color: #797c7f;
 	font-weight: bold;
 	display: block;
 }
 
 nav>ul>li>a:hover {
 	color: white;
-	background-color: #333;
+	background-color: lightcoral;
+}
+
+aside {
+	height: 200px;
+	line-height: 200px;
+	width: 100px;
+	background-color: lightgray;
+	text-align: center;
+}
+
+section {
+	min-height: 600px;
+	width: 1000px;
+	padding: 20px;
+}
+
+footer {
+	border: 1px solid palevioletred;
 }
