@@ -1,10 +1,14 @@
 from flask import Flask, Blueprint, render_template,redirect, request
 import datetime as dt
-finance_app= Flask(__name__)
+finance_app= Blueprint('finance_app',__name__)
 
 finance_list=[]
 fno=1
 price_total=0
+
+@finance_app.route("/")
+def home():
+    return render_template("index.html")
 
 @finance_app.route("/finance/list")
 def finance_view():
@@ -40,4 +44,3 @@ def delete():
 
 
 
-finance_app.run(debug=True)

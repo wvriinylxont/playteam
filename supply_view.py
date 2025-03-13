@@ -1,15 +1,19 @@
 from flask import Flask, Blueprint, render_template,redirect, request
 import datetime as dt
-supply_app= Flask(__name__)
+supply_app= Blueprint('supply_app',__name__)
 
 supply_list=[]
 sno=1
 
+@supply_app.route("/")
+def home():
+    return render_template("index.html")
 
 @supply_app.route("/supply/list")
 def finance_view():
 	
 	return render_template("supply/list.html",supply_list=supply_list)
+
 
 
 @supply_app.route("/supply/process", methods=['post'])
@@ -56,4 +60,3 @@ def delete():
 
 
 
-supply_app.run(debug=True)
