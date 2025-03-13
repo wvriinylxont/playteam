@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint, render_template, redirect, request
 import datetime
 
-todo_app = Flask(__name__)
+todo_app = Blueprint('todo_app',__name__)
 
 todos = []
 tno = 1
@@ -29,7 +29,3 @@ def delete():
     global todos
     todos = [todo for todo in todos if todo["tno"] != tno_to_delete]
     return redirect("/todo/list")
-
-
-
-todo_app.run(debug=True)
