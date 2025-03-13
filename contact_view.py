@@ -1,46 +1,30 @@
 from flask import Flask, Blueprint, render_template,redirect, request
 import datetime as dt
-finance_app= Blueprint('finance_app',__name__)
 
-finance_list=[]
-fno=1
-price_total=0
+contact_app=Blueprint('contact_app',__name__)
 
-@finance_app.route("/")
-def home():
-    return render_template("index.html")
+tels=[]
+telno=1
 
-@finance_app.route("/finance/list")
-def finance_view():
-	global price_total
-	price_total=0
-	for finance_dict in finance_list:
-		price_total += finance_dict['price']
+@contact_app.route('/contact/list')
+def index():
+    return render_template('/contact/list.html', tels=tels)
 
-	return render_template("finance/list.html",finance_list=finance_list,price_total= price_total)
+@contact_app.route('/contact/write', methods=['post'])
+def write():
+    global telno
+    name=request.form.get('name')
+    tel=request.form.get('tel')
+    address=request.form.get('address')
+    new_tel={'telno':telno, 'name': name, 'tel':tel, 'address':address}
+    tels.append(new_tel)
+    telno+=1
+    return redirect('/contact/list')
 
-@finance_app.route("/finance/process", methods=['post'])
-def finance_process():
-	global fno 
-	item = request.form.get('item')
-	price= int(request.form.get('price'))
-	date = dt.datetime.now().strftime('%Y-%m-%d')
-	finance_dict={'fno':fno, 'item':item, 'price':price, 'date':date}
-	finance_list.append(finance_dict)
-	fno+=1
-	return redirect("/finance/list")
-
-@finance_app.route('/finance/delete',methods=['post'])
+@contact_app.route('/contact/delete', methods=['post'])
 def delete():
-	fno= int(request.form.get('fno'))
-	for finance_dict in finance_list:
-		if finance_dict['fno']==fno:
-			finance_list.remove(finance_dict)
-	return redirect("/finance/list")
-
-
-
-
-
-
-
+    telno=int(request.form.get('telno'))
+    for contact in tels:
+        if contact['telno']==telno:
+            tels.remove(contact)
+    return redirect('/contact/list')
